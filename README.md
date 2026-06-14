@@ -1,5 +1,4 @@
-# Personal-Blog
-Personal Blog designed to integrate into a developer portfolio. Inspired by modern, clean slide presentations, it ditches traditional vertical feeds for a sophisticated, grid-based micro-dashboard aesthetic. The interface balances a sleek dark backdrop with soft, pastel-toned lavender and peach content tiles, creating a premium visual hierarchy.
+
 # Personal Blog Website ✦
 
 A beautifully responsive, micro-dashboard style personal blog subpage designed to showcase a modern, creative aesthetic. Built utilizing standard web technologies, this project features a balanced grid layout blending structured technical portfolios with expressive storytelling blocks.
