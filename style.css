@@ -1,0 +1,266 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background-color: #2b293d; /* Dark sophisticated backdrop contrasting the pastel tiles */
+  /* CHANGED: Fluid padding that shrinks elegantly on smaller mobile displays */
+  padding: 40px 16px;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+  height: auto;
+}
+
+.blog-container {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Base Blog Card Styles */
+.blog-card {
+  border-radius: 24px;
+  /* CHANGED: Fluid padding ensures internal text won't crush on small displays */
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0; /* Used for JS scroll reveal animation */
+  transform: translateY(30px);
+}
+
+.blog-card:hover {
+  /* FIXED: Adjusted tiny scale glitch (was 1.050px translated down) to a clean hover translation */
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+/* Theme Colorizations */
+.lavender-card {
+  background-color: #c5bbf2;
+  color: #2b293d;
+}
+
+.peach-card {
+  background-color: #ffd8be;
+  color: #3d2b20;
+}
+
+/* Hero Section Specifics */
+.hero-card {
+  background-color: #c5bbf2;
+  color: #2b293d;
+  text-align: center;
+  /* CHANGED: Compressed container padding slightly for smaller viewports */
+  padding: 48px 24px;
+  margin-bottom: 24px;
+  opacity: 1; /* Make sure hero displays instantly if JS transitions lag */
+  transform: translateY(0);
+}
+
+.creative-text {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.main-title {
+  /* CHANGED: Uses fluid viewport clamp scaling so text automatically downsizes on mobile devices */
+  font-size: clamp(38px, 8vw, 80px);
+  font-weight: 700;
+  letter-spacing: -2px;
+  margin-bottom: 5px;
+  line-height: 1.1;
+}
+
+.subtitle-name {
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  font-size: clamp(20px, 4vw, 28px);
+  margin-bottom: 30px;
+}
+
+.hero-socials {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap; /* Wraps items into clear stacked chains on mobile grids */
+}
+
+.badge {
+  background: rgba(43, 41, 61, 0.1);
+  padding: 10px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  color: #2b293d;
+  font-size: 13px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(43, 41, 61, 0.15);
+  transition: background 0.2s ease;
+}
+
+.badge:hover {
+  background: rgba(43, 41, 61, 0.2);
+}
+
+/* Floating Sparkle Elements */
+.sparkle {
+  position: absolute;
+  font-size: 24px;
+  color: #fff;
+  opacity: 0.8;
+}
+/* CHANGED: Repositioned sparkles to protect text overlap regions on narrow viewports */
+.s1 { top: 10%; left: 8%; }
+.s2 { bottom: 15%; right: 8%; }
+
+/* Grid Layout Setup */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+/* Adjustments for specific elements */
+.intro-flex {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.profile-frame {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #fff;
+  flex-shrink: 0;
+}
+
+.inner-pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.badge-tag, .section-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 20px;
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+h3, h4 {
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+p {
+  font-size: 15px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* Mock Visual Containers */
+.project-thumbnails, .gallery-row, .mock-ui {
+  display: flex;
+  gap: 16px;
+  margin-top: 20px;
+  /* CHANGED: Max-height boundary constraints maintain proportions better across platforms */
+  min-height: 160px; 
+  height: auto;
+  width: 100%;
+}
+
+.img, .gal-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.thumb, .gal-box, .mock-ui {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
+  padding: 15px;
+  flex: 1;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.thumb:hover, .gal-box:hover, .mock-ui:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.gal-box {
+  /* CHANGED: Eliminated the strict fixed widths and flex overlaps causing mobile overflow */
+  height: 180px;        
+  overflow: hidden;
+}
+
+.full-width-card {
+  grid-column: 1 / -1; 
+  width: 100%;        
+}
+
+/* --- RESPONSIVE MOBILE MEDIA QUERIES BREAKPOINT --- */
+@media (max-width: 768px) {
+  body {
+    padding: 20px 12px; /* Reduces outer margin so your cards have more content room */
+  }
+
+  .blog-card {
+    padding: 24px 20px; /* Conserves interior real estate */
+  }
+
+  .blog-grid {
+    grid-template-columns: 1fr; /* Collapses two columns cleanly into a unified stacked column feed */
+    gap: 16px;
+  }
+
+  .intro-flex {
+    flex-direction: column-reverse; /* Flips the circular image bubble right above text block */
+    text-align: center;
+    gap: 16px;
+  }
+
+  /* CHANGED: Forces nested project item panels to fold vertically when column width is tight */
+  .project-thumbnails, .gallery-row {
+    flex-direction: column;
+    height: auto;
+    min-height: unset;
+  }
+
+  .thumb, .gal-box {
+    width: 100%;
+    height: 140px; /* Consistent height standard across smaller vertical rows */
+  }
+}
